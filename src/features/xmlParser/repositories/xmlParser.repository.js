@@ -1,12 +1,12 @@
 const DatabaseService = require('../../common/services/database.service');
 
-module.exports = class XmlParserRepository {
+module.exports = class XmlParserRepository extends DatabaseService {
   constructor() {
-    this.databaseService = new DatabaseService('converter');
+    super('converter');
     this.saveJsonToDatabase = this.saveJsonToDatabase.bind(this);
   }
 
   saveJsonToDatabase(json) {
-    return this.databaseService.save(json);
+    return this.save(json);
   }
 };

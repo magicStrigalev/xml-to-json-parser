@@ -9,8 +9,7 @@ module.exports = class XmlParserController {
   }
 
   async parseXmlToJson() {
-    const path =
-      '/Users/andrewstampede/Desktop/xml-to-json-converter/storage/example.xml';
+    const path = process.env.FILE_PATH;
     const file = await fs.createReadStream(path);
     return this.xmlParserService.getXmlString(file);
   }
